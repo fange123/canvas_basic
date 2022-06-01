@@ -113,6 +113,22 @@ public draw(){
   })
 }
 
+
+//* 截图功能
+public short(){
+  const div = document.createElement('button')
+  div.innerText = '截图'
+  this.btnDiv.insertAdjacentElement('afterbegin',div)
+  const img = document.createElement('img')
+  div.addEventListener('click', () => {
+    //* toDataURL是canvas的方法
+    img.src = this.el.toDataURL('image/jpeg')
+    img.classList.add('short_img')
+    this.btnDiv.insertAdjacentElement('afterend',img)
+
+  })
+}
+
 }
 
 
@@ -122,3 +138,5 @@ instance.clear().setBgColor('#2c3e50')
 instance.setLineColor()
 
 instance.erase()
+
+instance.short()

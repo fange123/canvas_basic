@@ -22,3 +22,9 @@ body {
   margin: 0 5px;
   cursor: pointer;
 }
+
+.short_img {
+  width: 200px;
+  height: 120px;
+  margin-top: 20px;
+}
