@@ -14,6 +14,8 @@ class BlackBoard {
   ){
     this.initCanvas()
     this.bindEvent()
+    this.draw()
+
 
   }
 
@@ -97,6 +99,17 @@ public erase(){
   erase.addEventListener('click', () => {
     this.lineColor = this.bgColor
     this.app.lineWidth = 10
+  })
+}
+
+//* 写字功能  使用完橡皮擦后字体变粗了，写字功能是为了恢复字体
+public draw(){
+  const div = document.createElement('button')
+  div.innerText = '写字'
+  this.btnDiv.insertAdjacentElement('afterbegin',div)
+  div.addEventListener('click', () => {
+    this.lineColor = '#fff'
+    this.app.lineWidth = 1
   })
 }
 
