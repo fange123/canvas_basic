@@ -89,6 +89,17 @@ public setLineColor(){
   return this
 }
 
+//* 橡皮擦
+public erase(){
+  const erase = document.createElement('button')
+  erase.innerText = '橡皮'
+  this.btnDiv.insertAdjacentElement('afterbegin',erase)
+  erase.addEventListener('click', () => {
+    this.lineColor = this.bgColor
+    this.app.lineWidth = 10
+  })
+}
+
 }
 
 
@@ -96,3 +107,5 @@ const instance = new BlackBoard()
 instance.clear().setBgColor('#2c3e50')
 
 instance.setLineColor()
+
+instance.erase()
