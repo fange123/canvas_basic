@@ -20,7 +20,7 @@ class BlackBoard {
 private initCanvas(){
   this.app.fillStyle = this.bgColor
   this.app.fillRect(0,0,this.width,this.height)
-  this.btnDiv.style.cssText='margin-top:10px'
+  this.btnDiv.classList.add('btn_div')
   this.el.insertAdjacentElement('afterend',this.btnDiv)
 
 }
@@ -69,11 +69,30 @@ public clear() {
   return this
 
 
+}
 
+//* 设置粉笔的颜色
+
+public setLineColor(){
+  const colors = ['#2ecc71','#3498db','#ecf0f1','#f1c40f'] ;
+  const container = document.createElement('div')
+  container.classList.add('container')
+  this.btnDiv.insertAdjacentElement('afterend',container)
+  colors.forEach(color => {
+    const div = document.createElement('div')
+    div.style.cssText = `background-color:${color}`
+    container.insertAdjacentElement('afterbegin',div)
+    div.addEventListener('click', () => this.lineColor = color) ;
+
+  })
+
+  return this
 }
 
 }
 
 
 const instance = new BlackBoard()
-instance.clear().setBgColor('green')
+instance.clear().setBgColor('#2c3e50')
+
+instance.setLineColor()

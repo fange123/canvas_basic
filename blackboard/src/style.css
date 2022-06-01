@@ -7,3 +7,18 @@ body {
   align-items: center;
   background-color: #95a5a6;
 }
+
+.btn_div {
+  margin-top: 10px;
+}
+
+.container {
+  display: flex;
+  margin-top: 10px;
+}
+.container div {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  cursor: pointer;
+}
