@@ -2,7 +2,7 @@ import config from './config'
 import straw from'./canvas/straw'
 import './style.scss'
 //* 游戏开始前需要加载贴图等资源
-import { promise,image } from './service/image'
+import { promise } from './service/image'
 
 
 const app:HTMLDivElement= document.querySelector('#app')!

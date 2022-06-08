@@ -1,5 +1,4 @@
 import config from '../config'
-import { image } from '../service/image';
 // * 创建父级的类
 
 export default abstract class CanvasAbstract{
@@ -23,10 +22,11 @@ export default abstract class CanvasAbstract{
   }
 
   //* 画对象模型
-  protected drawModels(n:number,model:any){
+  protected drawModels(n:number,model:IModelConstructor){
     //渲染多个草坪
     this.positionCollection(n).forEach((position)=>{
-      new model(this.canvas,position.x,position.y)
+      const instance = new model(this.canvas,position.x,position.y)
+      instance.render()
     })
   }
 
