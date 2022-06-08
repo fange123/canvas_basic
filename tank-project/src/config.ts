@@ -14,6 +14,10 @@ export default {
 
   },
 
+  straw:{
+    num:20,//* 草坪数量
+  },
+
   //*图片
   images:{
     straw
