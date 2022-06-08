@@ -23,9 +23,11 @@ export default abstract class CanvasAbstract{
   }
 
   //* 画对象模型
-  protected drawModels(n:number){
+  protected drawModels(n:number,model:any){
     //渲染多个草坪
-    this.positionCollection(n).forEach((position)=>this.canvas.drawImage(image.get('straw')!, position.x,position.y,config.model.width,config.model.height))
+    this.positionCollection(n).forEach((position)=>{
+      new model(this.canvas,position.x,position.y)
+    })
   }
 
   //* 批量随机生成,但是随机生成坐标可能有重复的，会导致贴图重叠
