@@ -30,9 +30,17 @@ export default abstract class CanvasAbstract{
 
   //* 批量随机生成,但是随机生成坐标可能有重复的，会导致贴图重叠
   protected positionCollection(n:number){
-    const collection = []
+    const collection = [] as {x: number, y: number}[]
     for (let index = 0; index < n; index++) {
-      collection.push(this.position())
+      //* 做个判断，不重复才push
+      while(true){
+        const position = this.position()
+        const exist = collection.some(p=>p.x == position.x && p.y == position.y )
+        if(!exist){
+          collection.push(this.position())
+          break;
+        }
+      }
     }
     return collection
 
