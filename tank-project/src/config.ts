@@ -1,6 +1,7 @@
 import straw from './static/images/straw/straw.png'
 import wall from './static/images/wall/wall.gif'
 import water from './static/images/water/water.gif'
+import steel from './static/images/wall/steels.gif'
 //* 基本配置
 export default {
   // * 画布的基本配置
@@ -17,20 +18,24 @@ export default {
   },
 
   straw:{
-    num:60,//* 草坪数量
+    num:80,//* 草坪数量
   },
   wall:{
-    num:30,//* 砖墙数量
+    num:40,//* 砖墙数量
   },
   water:{
-    num:10,//* 水坑数量
+    num:30,//* 水坑数量
+  },
+  steel:{
+    num:20,//* 白墙数量
   },
 
   //*图片
   images:{
     straw,
     wall,
-    water
+    water,
+    steel
 
   }
 }
