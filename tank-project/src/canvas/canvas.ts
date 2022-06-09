@@ -4,7 +4,7 @@ import position from '../service/position';
 
 export default abstract class CanvasAbstract{
   //* items是用来在不同实例中记录不同对象的数据：比如记录坦克的数量，草地的数量，子弹的轨迹等等
-  protected items = []
+  protected model:IModel[] = []
   //定义一个抽象方法
   abstract render():void;
   constructor(
@@ -23,12 +23,17 @@ export default abstract class CanvasAbstract{
   }
 
   //* 画对象模型
-  protected drawModels(n:number,model:IModelConstructor){
+  protected createModels(n:number,model:IModelConstructor){
     //渲染多个草坪
     position.getPosition(n).forEach((position)=>{
       const instance = new model(this.canvas,position.x,position.y)
-      instance.render()
+      this.model.push(instance)
+
     })
+  }
+
+  protected renderModels(){
+    this.model.forEach(model=>model.render())
   }
 
 
