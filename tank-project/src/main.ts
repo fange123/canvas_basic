@@ -4,6 +4,7 @@ import './style.scss'
 //* 游戏开始前需要加载贴图等资源
 import { promise } from './service/image'
 import wall from './canvas/wall'
+import water from './canvas/water'
 
 
 const app:HTMLDivElement= document.querySelector('#app')!
@@ -17,6 +18,7 @@ async function bootstrap(){
 
   straw.render()//先加载贴图，再加载画布
   wall.render()//渲染砖墙
+  water.render()//渲染水坑
 
 
 }
