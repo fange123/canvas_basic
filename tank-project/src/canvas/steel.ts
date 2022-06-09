@@ -10,13 +10,9 @@ class Steel extends CanvasAbstract{
   model(): IModelConstructor {
    return model
   }
-  constructor(){
-    super()
-    super.createModels()
-
-  }
 
   render(): void {
+    super.createModels()
     super.renderModels()
   }
 

@@ -11,13 +11,9 @@ class Straw extends CanvasAbstract{
     return model
   }
 
-  constructor(){
-    super()
-    super.createModels()
-
-  }
 
   render(): void {
+    super.createModels()
     super.renderModels()
   }
 
