@@ -1,4 +1,5 @@
 import config from '../config'
+import position from '../service/position';
 // * 创建父级的类
 
 export default abstract class CanvasAbstract{
@@ -24,36 +25,12 @@ export default abstract class CanvasAbstract{
   //* 画对象模型
   protected drawModels(n:number,model:IModelConstructor){
     //渲染多个草坪
-    this.positionCollection(n).forEach((position)=>{
+    position.getPosition(n).forEach((position)=>{
       const instance = new model(this.canvas,position.x,position.y)
       instance.render()
     })
   }
 
-  //* 批量随机生成,但是随机生成坐标可能有重复的，会导致贴图重叠
-  protected positionCollection(n:number){
-    const collection = [] as {x: number, y: number}[]
-    for (let index = 0; index < n; index++) {
-      //* 做个判断，不重复才push
-      while(true){
-        const position = this.position()
-        const exist = collection.some(p=>p.x == position.x && p.y == position.y )
-        if(!exist){
-          collection.push(this.position())
-          break;
-        }
-      }
-    }
-    return collection
 
-  }
-
-  //* 模型的随机位置的计算
-  protected position(){
-    return {
-      x:Math.floor(Math.random()*(config.canvas.width/config.model.width))*config.model.width,
-      y:Math.floor(Math.random()*(config.canvas.height/config.model.height))*config.model.height,
-    }
-  }
 
 }
