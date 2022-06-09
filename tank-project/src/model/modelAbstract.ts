@@ -1,5 +1,4 @@
 import config from "../config";
-import { image } from "../service/image";
 
 //*定义模型的抽象父类，方便子类继承
 export abstract class  ModelAbstract{
@@ -9,7 +8,7 @@ export abstract class  ModelAbstract{
 
   }
 
-  protected draw(){
-      this.canvas.drawImage(image.get('straw')!, this.x,this.y,config.model.width,config.model.height)
+  protected draw(img:HTMLImageElement){
+      this.canvas.drawImage(img, this.x,this.y,config.model.width,config.model.height)
   }
 }
