@@ -29,7 +29,7 @@ class Position {
   }
 
   //* 模型的随机位置的计算
-  protected position(){
+  public position(){
     return {
       x:Math.floor(Math.random()*(config.canvas.width/config.model.width))*config.model.width,
       //* 画布要在上下留出一部分距离

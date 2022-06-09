@@ -6,6 +6,7 @@ import { promise } from './service/image'
 import wall from './canvas/wall'
 import water from './canvas/water'
 import steel from './canvas/steel'
+import tank from './canvas/tank'
 
 
 const app:HTMLDivElement= document.querySelector('#app')!
@@ -21,6 +22,7 @@ async function bootstrap(){
   wall.render()//渲染砖墙
   water.render()//渲染水坑
   steel.render()//渲染白墙
+  tank.render()//渲染坦克
 
 
 }
