@@ -3,7 +3,7 @@ import config from '../config'
 import model from "../model/water"
 
 //* 创建水坑的实例
-class Water extends CanvasAbstract{
+class Water extends CanvasAbstract implements ICanvas{
   number(): number {
     return config.water.num
   }

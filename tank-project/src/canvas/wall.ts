@@ -3,7 +3,7 @@ import config from '../config'
 import model from "../model/wall"
 
 //* 创建砖墙的实例
-class Wall extends CanvasAbstract{
+class Wall extends CanvasAbstract implements ICanvas{
   number(): number {
     return config.wall.num
   }

@@ -6,3 +6,8 @@ interface IModelConstructor{
 interface IModel{
   render():void
 }
+
+interface ICanvas {
+  model():IModelConstructor
+  number():number
+}
