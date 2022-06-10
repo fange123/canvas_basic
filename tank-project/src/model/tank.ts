@@ -7,16 +7,14 @@ import config from "../config";
 export default class extends ModelAbstract implements IModel{
   name: string = 'tank';
 
-  protected direction:directEnum = directEnum.top
   render(): void {
-    this.randomPosition()
-    super.draw(this.renderImage())
+    // super.draw()
 
-    //# 循环定时器让坦克动起来
-    setInterval(()=> {
-      this.move()
+    // //# 循环定时器让坦克动起来
+    // setInterval(()=> {
+    //   this.move()
 
-    },50)
+    // },50)
   }
 
 protected move(){
@@ -24,13 +22,13 @@ protected move(){
   this.canvas.clearRect(this.x,this.y,config.model.width,config.model.height)
   switch (this.direction) {
     case directEnum.top:
-      this.y+=2
+      this.y-=2
       break;
     case directEnum.right:
       this.x+=2
       break;
     case directEnum.bottom:
-      this.y-=2
+      this.y+=2
       break;
     case directEnum.left:
       this.x-=2
@@ -40,23 +38,19 @@ protected move(){
       break;
   }
   //* 改变完方向再把坦克重绘一下
-  super.draw(this.renderImage())
+  super.draw(this.image())
 
 
 }
 
 //* 绘制坦克的图片要随机生成
-renderImage(){
+image(){
   const direction = this.name + _.upperFirst(this.direction)
   //~lodash库的作用就是为了把首字母转成大写
   return image.get(direction as keyof typeof config.images)!
 
 }
 
-//* 随机产生方向
 
-randomPosition(){
-  this.direction = Object.keys(directEnum)[Math.floor(Math.random()*4)] as directEnum
-}
 
 }
