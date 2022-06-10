@@ -8,13 +8,7 @@ export default class extends ModelAbstract implements IModel{
   name: string = 'tank';
 
   render(): void {
-    // super.draw()
-
-    // //# 循环定时器让坦克动起来
-    // setInterval(()=> {
-    //   this.move()
-
-    // },50)
+   this.move()
   }
 
 protected move(){
@@ -37,8 +31,6 @@ protected move(){
     default:
       break;
   }
-  //* 改变完方向再把坦克重绘一下
-  super.draw(this.image())
 
 
 }

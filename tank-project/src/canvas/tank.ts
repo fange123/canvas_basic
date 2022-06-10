@@ -15,7 +15,11 @@ class Tank extends CanvasAbstract implements ICanvas{
 
   render(): void {
     this.createModels()//重写，用自己的
-    super.renderModels()
+    this.renderModels()
+
+    setInterval(()=> {
+      this.renderModels()
+    },50)
   }
 
     //* 画对象模型
@@ -29,6 +33,15 @@ class Tank extends CanvasAbstract implements ICanvas{
       this.models.push(instance)
 
     }
+  }
+
+   //* 将模型渲染到画布上
+  protected renderModels(){
+      this.canvas.clearRect(0,0,config.canvas.width,config.canvas.height)
+    this.models.forEach(model=>{
+      model.render()
+      this.canvas.drawImage(model.image(),model.x,model.y,config.model.width,config.model.height)
+    })
   }
 
 
