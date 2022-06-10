@@ -22,7 +22,7 @@ class Position {
       }
 
     }
-      console.log(this.collection);
+
 
     return collection
 
