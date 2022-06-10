@@ -8,29 +8,30 @@ export default class extends ModelAbstract implements IModel{
   name: string = 'tank';
 
   render(): void {
+    super.draw()
    this.move()
   }
 
 protected move(){
-  //* 每次运动前需要清理一下画布，如果只清理坦克，坦克数量多的时候影响性能
-  this.canvas.clearRect(this.x,this.y,config.model.width,config.model.height)
+
   switch (this.direction) {
     case directEnum.top:
-      this.y-=2
+      this.y--
       break;
     case directEnum.right:
-      this.x+=2
+      this.x++
       break;
     case directEnum.bottom:
-      this.y+=2
+      this.y++
       break;
     case directEnum.left:
-      this.x-=2
+      this.x--
       break;
 
     default:
       break;
   }
+  super.draw()
 
 
 }

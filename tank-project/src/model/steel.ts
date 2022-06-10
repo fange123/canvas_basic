@@ -7,7 +7,7 @@ export default class extends ModelAbstract implements IModel{
   }
   name: string = 'steel';
   render(): void {
-    // super.draw()
+    super.draw()
   }
 
 }

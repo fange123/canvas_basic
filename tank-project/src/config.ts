@@ -8,6 +8,8 @@ import tankBottom from './static/images/tank/bottom.gif'
 import tankLeft from './static/images/tank/left.gif'
 //* 基本配置
 export default {
+
+  timeout:50,//* 坦克移动时间
   // * 画布的基本配置
   canvas:{
     width:900,

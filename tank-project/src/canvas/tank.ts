@@ -19,7 +19,7 @@ class Tank extends CanvasAbstract implements ICanvas{
 
     setInterval(()=> {
       this.renderModels()
-    },50)
+    },config.timeout)
   }
 
     //* 画对象模型
@@ -37,11 +37,9 @@ class Tank extends CanvasAbstract implements ICanvas{
 
    //* 将模型渲染到画布上
   protected renderModels(){
+     //* 每次运动前需要清理一下画布，如果只清理坦克，坦克数量多的时候影响性能
       this.canvas.clearRect(0,0,config.canvas.width,config.canvas.height)
-    this.models.forEach(model=>{
-      model.render()
-      this.canvas.drawImage(model.image(),model.x,model.y,config.model.width,config.model.height)
-    })
+      super.renderModels()
   }
 
 
