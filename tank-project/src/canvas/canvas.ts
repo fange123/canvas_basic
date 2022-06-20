@@ -9,7 +9,7 @@ import position from '../service/position';
 
 export default abstract class CanvasAbstract{
   //* items是用来在不同实例中记录不同对象的数据：比如记录坦克的数量，草地的数量，子弹的轨迹等等
-  protected models:IModel[] = []
+  public models:IModel[] = []
   abstract number():number
   abstract model():IModelConstructor
   //定义一个抽象方法

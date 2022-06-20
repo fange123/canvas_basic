@@ -9,7 +9,7 @@ import tankLeft from './static/images/tank/left.gif'
 //* 基本配置
 export default {
 
-  timeout:50,//* 坦克移动时间
+  timeout:10,//* 坦克移动时间
   // * 画布的基本配置
   canvas:{
     width:900,
@@ -36,7 +36,7 @@ export default {
     num:20,//* 白墙数量
   },
   tank:{
-    num:10,//* 坦克数量
+    num:20,//* 坦克数量
   },
 
   //*图片
