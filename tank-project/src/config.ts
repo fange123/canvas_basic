@@ -24,7 +24,7 @@ export default {
   },
 
   straw:{
-    num:80,//* 草坪数量
+    num:160,//* 草坪数量
   },
   wall:{
     num:40,//* 砖墙数量

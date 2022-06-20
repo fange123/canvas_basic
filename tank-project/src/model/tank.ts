@@ -11,8 +11,12 @@ export default class extends ModelAbstract implements IModel{
   name: string = 'tank';
 
   render(): void {
-    super.draw()
    this.move()
+   //* 增加坦克向下移动的概率
+   if(Math.floor(Math.random() * 10) > 2){
+    this.direction = directEnum.bottom
+
+   }
   }
 
 protected move(){
