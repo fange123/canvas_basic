@@ -8,17 +8,18 @@ export abstract class  ModelAbstract{
   public height = config.model.height
 
   abstract image():HTMLImageElement
+  public abstract canvas:ICanvas
 
   abstract render():void
   abstract name:string
   constructor(
-    protected canvas:CanvasRenderingContext2D,public x:number, public y:number){
+    public x:number, public y:number){
       this.randomPosition()
   }
 
   //* 在画布渲染，不需要在模型里面渲染
   protected draw(){
-      this.canvas.drawImage(this.image(), this.x,this.y,config.model.width,config.model.height)
+      this.canvas.ctx.drawImage(this.image(), this.x,this.y,config.model.width,config.model.height)
   }
 //* 随机产生方向
   protected randomPosition(){

@@ -17,7 +17,7 @@ export default abstract class CanvasAbstract{
   constructor(
     protected app = document.querySelector('#app') as HTMLDivElement,
     protected el:HTMLCanvasElement = document.createElement('canvas'),
-    protected canvas = el.getContext('2d')!
+    public ctx = el.getContext('2d')!
   ){
     this.createCanvas();
   }
@@ -34,7 +34,7 @@ export default abstract class CanvasAbstract{
     //渲染多个草坪
     position.getPosition(this.number()).forEach((position)=>{
       const model = this.model()
-      const instance = new model(this.canvas,position.x,position.y)
+      const instance = new model(position.x,position.y)
       this.models.push(instance)
 
     })
