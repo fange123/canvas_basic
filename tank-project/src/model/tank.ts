@@ -13,25 +13,51 @@ export default class extends ModelAbstract implements IModel{
   }
 
 protected move(){
-
+ while(true){
+  let x = this.x
+  let y = this.y
   switch (this.direction) {
+
     case directEnum.top:
-      this.y--
+      y--
       break;
     case directEnum.right:
-      this.x++
+      x++
       break;
     case directEnum.bottom:
-      this.y++
+      y++
       break;
     case directEnum.left:
-      this.x--
+      x--
       break;
 
     default:
       break;
   }
+
   super.draw()
+
+  if(this.isTouch(x,y)=== true){
+    //~如果碰撞到了，就再次获取随机方位
+    this.randomPosition()
+  }else {
+    this.x = x
+    this.y = y
+    break
+  }
+ }
+
+
+}
+
+//* 检测坦克是否碰撞的方法
+protected isTouch(x:number,y:number):boolean{
+//边界判断
+if(x < 0 || x+this.width > config.canvas.width || y < 0 || y+this.height > config.canvas.height){
+  return true
+
+}
+return false
 
 
 }

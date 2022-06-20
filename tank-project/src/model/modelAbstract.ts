@@ -4,6 +4,8 @@ import { directEnum } from "../enum/positionEnum";
 //*定义模型的抽象父类，方便子类继承
 export abstract class  ModelAbstract{
   protected direction:directEnum = directEnum.top
+  protected width = config.model.width
+  protected height = config.model.height
 
   abstract image():HTMLImageElement
 
