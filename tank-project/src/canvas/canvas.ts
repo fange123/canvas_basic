@@ -15,6 +15,7 @@ export default abstract class CanvasAbstract{
   //定义一个抽象方法
   abstract render():void;
   constructor(
+    protected name:string,
     protected app = document.querySelector('#app') as HTMLDivElement,
     protected el:HTMLCanvasElement = document.createElement('canvas'),
     public ctx = el.getContext('2d')!
@@ -26,6 +27,7 @@ export default abstract class CanvasAbstract{
   protected createCanvas(){
    this. el.width = config.canvas.width
     this.el.height = config.canvas.height
+    this.el.setAttribute('name',this.name)
     this.app.insertAdjacentElement('afterbegin',this.el)
   }
 

@@ -4,7 +4,7 @@ import model from "../model/tank"
 import position from "../service/position";
 
 //* 创建坦克的实例
-class Tank extends CanvasAbstract implements ICanvas{
+export default new(class Tank extends CanvasAbstract implements ICanvas{
   number(): number {
     return config.tank.num
   }
@@ -43,7 +43,7 @@ class Tank extends CanvasAbstract implements ICanvas{
   }
 
 
-}
+})('tank')
 
 
-export default new Tank()
+

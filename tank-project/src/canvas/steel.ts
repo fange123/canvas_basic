@@ -3,7 +3,7 @@ import config from '../config'
 import model from "../model/steel"
 
 //* 创建水坑的实例
-class Steel extends CanvasAbstract implements ICanvas{
+export default new(class Steel extends CanvasAbstract implements ICanvas{
   number(): number {
     return config.steel.num
   }
@@ -17,7 +17,7 @@ class Steel extends CanvasAbstract implements ICanvas{
   }
 
 
-}
+})('steel')
 
 
-export default new Steel()
+

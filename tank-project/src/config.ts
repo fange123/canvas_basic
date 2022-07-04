@@ -6,6 +6,7 @@ import tankTop from './static/images/tank/top.gif'
 import tankRight from './static/images/tank/right.gif'
 import tankBottom from './static/images/tank/bottom.gif'
 import tankLeft from './static/images/tank/left.gif'
+import bullet from './static/images/bullet/bullet.jpg'
 //* 基本配置
 export default {
 
@@ -48,7 +49,8 @@ export default {
     tankTop,
     tankRight,
     tankBottom,
-    tankLeft
+    tankLeft,
+    bullet
 
   }
 }

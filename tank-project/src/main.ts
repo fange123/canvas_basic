@@ -7,6 +7,7 @@ import wall from './canvas/wall'
 import water from './canvas/water'
 import steel from './canvas/steel'
 import tank from './canvas/tank'
+import bullet from './canvas/bullet'
 
 
 const app:HTMLDivElement= document.querySelector('#app')!
@@ -23,6 +24,7 @@ async function bootstrap(){
   water.render()//渲染水坑
   steel.render()//渲染白墙
   tank.render()//渲染坦克
+  bullet.render()//渲染子弹
 
 
 }
