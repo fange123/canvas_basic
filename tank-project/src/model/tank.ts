@@ -15,7 +15,7 @@ export default class extends ModelAbstract implements IModel{
   render(): void {
    this.move()
    //* 增加坦克向下移动的概率
-   if(Math.floor(Math.random() * 10) > 2){
+   if(Math.floor((Math.random()+1) * 5) > 8){
     this.direction = directEnum.bottom
 
    }

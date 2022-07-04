@@ -16,7 +16,33 @@ export default class extends ModelAbstract implements IModel{
   }
   name: string = 'bullet';
   render(): void {
-    super.draw()
+    let x =  this.x
+    let y =  this.y
+    switch (this.direction) {
+      case directEnum.top:
+      y -= 2
+        break;
+      case directEnum.right:
+     x += 2
+        break;
+      case directEnum.bottom:
+      y += 2
+        break;
+      case directEnum.left:
+      x -= 2
+        break;
+
+      default:
+        break;
+    }
+    this.x = x
+    this.y = y
+    this.draw()
+
+  }
+//* 重写draw方法，让自定义子弹的大小
+   protected draw(){
+      this.canvas.ctx.drawImage(this.image(), this.x,this.y,2,2)
   }
 
 }
