@@ -11,7 +11,7 @@ export default abstract class CanvasAbstract{
   //* items是用来在不同实例中记录不同对象的数据：比如记录坦克的数量，草地的数量，子弹的轨迹等等
   public models:IModel[] = []
   abstract number():number
-  abstract model():IModelConstructor
+  abstract model():IModelConstructor | IBulletModelConstructor
   //定义一个抽象方法
   abstract render():void;
   constructor(
@@ -35,7 +35,7 @@ export default abstract class CanvasAbstract{
   protected createModels(){
     //渲染多个草坪
     position.getPosition(this.number()).forEach((position)=>{
-      const model = this.model()
+      const model = this.model()as IModelConstructor
       const instance = new model(position.x,position.y)
       this.models.push(instance)
 
