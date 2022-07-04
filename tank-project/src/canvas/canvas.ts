@@ -50,6 +50,12 @@ export default abstract class CanvasAbstract{
     })
   }
 
+  public removeModel(model: IModel){
+    //把碰撞的模型过滤掉
+    this.models = this.models.filter(m=>m!==model)
+
+  }
+
 
 
 }

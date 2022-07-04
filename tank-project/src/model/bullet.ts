@@ -3,6 +3,7 @@ import config from "../config";
 import { directEnum } from "../enum/positionEnum";
 import { image } from "../service/image";
 import { ModelAbstract } from "./modelAbstract";
+import util from '../util'
 
 export default class extends ModelAbstract implements IModel{
   public canvas: ICanvas = bullet;
@@ -35,9 +36,13 @@ export default class extends ModelAbstract implements IModel{
       default:
         break;
     }
+    if(util.isCanvasTouch(x,y,2,2)){
+      //移除模型
+      this.destroy()
+    }else{
     this.x = x
     this.y = y
-    this.draw()
+    this.draw()}
 
   }
 //* 重写draw方法，让自定义子弹的大小

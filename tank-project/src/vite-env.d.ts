@@ -20,5 +20,6 @@ interface IModel{
 interface ICanvas {
   model():IModelConstructor | IBulletModelConstructor
   number():number
+  removeModel(model:IModel):void
   ctx:CanvasRenderingContext2D
 }
