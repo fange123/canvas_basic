@@ -20,7 +20,7 @@ export default new (class extends CanvasAbstract implements ICanvas{
     setInterval(() =>{
       this.createBullet()
       this.renderModels()
-    },20)
+    },50)//子弹的渲染时间
   }
 
   createBullet(){
