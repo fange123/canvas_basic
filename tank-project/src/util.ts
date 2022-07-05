@@ -1,3 +1,4 @@
+import boss from "./canvas/boss"
 import steel from "./canvas/steel"
 import wall from "./canvas/wall"
 import config from "./config"
@@ -11,7 +12,7 @@ export default {
 
 
   },
-   isModelTouch(x:number,y:number,width=config.model.width,height=config.model.height,models = [...wall.models,...steel.models]):IModel|undefined{
+   isModelTouch(x:number,y:number,width=config.model.width,height=config.model.height,models = [...wall.models,...steel.models,...boss.models]):IModel|undefined{
     //模型判断  返回模型
     return models.find(item=> {
       const state = x + width <= item.x || //#坦克的坐标+坦克的宽度<=被检测模型的坐标x轴📄，表示没有碰撞，其他同理

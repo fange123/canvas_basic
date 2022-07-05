@@ -38,7 +38,7 @@ export default {
     num:10,//* 白墙数量
   },
   tank:{
-    num:5,//* 坦克数量
+    num:20,//* 坦克数量
   },
   boss:{
   num:1//* boss数量

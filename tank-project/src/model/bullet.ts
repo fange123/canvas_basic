@@ -7,6 +7,7 @@ import util from '../util'
 import wall from "../canvas/wall";
 import water from "../canvas/water";
 import steel from "../canvas/steel";
+import boss from "../canvas/boss";
 
 export default class extends ModelAbstract implements IModel{
   public canvas: ICanvas = bullet;
@@ -40,7 +41,7 @@ export default class extends ModelAbstract implements IModel{
         break;
     }
 
-    const touchModel = util.isModelTouch(x,y,2,2,[...wall.models,...water.models,...steel.models])//碰撞了应该消失掉的模型
+    const touchModel = util.isModelTouch(x,y,2,2,[...wall.models,...water.models,...steel.models,...boss.models])//碰撞了应该消失掉的模型
     if(util.isCanvasTouch(x,y,2,2)){
       //移除模型
       this.destroy()
