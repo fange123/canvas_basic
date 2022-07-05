@@ -7,6 +7,7 @@ import tankRight from './static/images/tank/right.gif'
 import tankBottom from './static/images/tank/bottom.gif'
 import tankLeft from './static/images/tank/left.gif'
 import bullet from './static/images/bullet/bullet.jpg'
+import boss from './static/images/boss/boss.png'
 //* 基本配置
 export default {
 
@@ -37,8 +38,11 @@ export default {
     num:10,//* 白墙数量
   },
   tank:{
-    num:20,//* 坦克数量
+    num:5,//* 坦克数量
   },
+  boss:{
+  num:1//* boss数量
+},
 
   //*图片
   images:{
@@ -50,7 +54,8 @@ export default {
     tankRight,
     tankBottom,
     tankLeft,
-    bullet
+    bullet,
+    boss
 
   }
 }
