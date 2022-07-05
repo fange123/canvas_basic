@@ -26,7 +26,8 @@ export abstract class  ModelAbstract{
     this.direction = Object.keys(directEnum)[Math.floor(Math.random()*4)] as directEnum
   }
 
-  protected destroy(){
+  public destroy(){
     this.canvas.removeModel(this)
+    this.canvas.renderModels()
   }
 }

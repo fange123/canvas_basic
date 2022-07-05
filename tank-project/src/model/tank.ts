@@ -44,7 +44,7 @@ protected move(){
 
   super.draw()
 
-  if(util.isModelTouch(x,y)=== true){
+  if(util.isModelTouch(x,y) || util.isCanvasTouch(x,y)){
     //~如果碰撞到了，就再次获取随机方位
     this.randomPosition()
   }else {

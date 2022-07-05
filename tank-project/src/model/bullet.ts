@@ -4,6 +4,9 @@ import { directEnum } from "../enum/positionEnum";
 import { image } from "../service/image";
 import { ModelAbstract } from "./modelAbstract";
 import util from '../util'
+import wall from "../canvas/wall";
+import water from "../canvas/water";
+import steel from "../canvas/steel";
 
 export default class extends ModelAbstract implements IModel{
   public canvas: ICanvas = bullet;
@@ -36,9 +39,14 @@ export default class extends ModelAbstract implements IModel{
       default:
         break;
     }
+
+    const touchModel = util.isModelTouch(x,y,2,2,[...wall.models,...water.models,...steel.models])//碰撞了应该消失掉的模型
     if(util.isCanvasTouch(x,y,2,2)){
       //移除模型
       this.destroy()
+    }else if(touchModel){
+      this.destroy()
+      touchModel.destroy()//模型自我销毁
     }else{
     this.x = x
     this.y = y

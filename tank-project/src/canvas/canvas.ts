@@ -43,7 +43,7 @@ export default abstract class CanvasAbstract{
   }
 
   //* 将模型渲染到画布上
-  protected renderModels(){
+  public renderModels(){
     this.ctx.clearRect(0,0,config.canvas.width,config.canvas.height)
     this.models.forEach(model=>{
       model.render()
