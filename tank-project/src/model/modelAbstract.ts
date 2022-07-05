@@ -30,4 +30,26 @@ export abstract class  ModelAbstract{
     this.canvas.removeModel(this)
     this.canvas.renderModels()
   }
+
+   //爆炸效果
+  protected blast(model:IModel){
+  //* 因为图片要一个一个显示，所以要使用promise最合适
+    [...Array(8).keys()].reduce((promise,index)=>{
+      return new Promise((resolve)=> {
+      setTimeout(() => {
+          const img = new Image();
+        img.src = `./src/static/images/blasts/blast${index}.gif`
+        img.addEventListener('load',()=> {
+      //* 图片加载完毕，在画布上渲染，加载下一张图片
+      this.canvas.ctx.drawImage(img,model.x,model.y,model.width,model.height);
+        resolve(promise)
+    })
+      }, 100);
+
+      })
+    },Promise.resolve())
+
+  }
+
+
 }

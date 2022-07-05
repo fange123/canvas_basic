@@ -25,7 +25,6 @@ export default new (class extends CanvasAbstract implements ICanvas{
 
   createBullet(){
     tank.models.forEach(tank=>{
-      console.log(this.models);
 
     //* 如果子弹模型里面存在坦克，就不需要重复生成子弹
     const isExist =this.models.some(m=>m.tank === tank)

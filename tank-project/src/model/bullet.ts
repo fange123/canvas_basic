@@ -46,7 +46,9 @@ export default class extends ModelAbstract implements IModel{
       this.destroy()
     }else if(touchModel){
       this.destroy()
-      touchModel.destroy()//模型自我销毁
+      //  子弹碰到steel类型的模型的墙不可以被销毁
+      if(touchModel.name !== 'steel') touchModel.destroy()//模型自我销毁
+      this.blast(touchModel)
     }else{
     this.x = x
     this.y = y
@@ -57,5 +59,7 @@ export default class extends ModelAbstract implements IModel{
    protected draw(){
       this.canvas.ctx.drawImage(this.image(), this.x,this.y,2,2)
   }
+
+
 
 }

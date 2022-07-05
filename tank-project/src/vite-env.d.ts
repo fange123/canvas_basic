@@ -9,6 +9,7 @@ interface IBulletModelConstructor{
 interface IModel{
   render():void
   tank?:IModel
+  name:string
   x:number
   y:number
   width:number
