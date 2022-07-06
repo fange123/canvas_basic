@@ -25,16 +25,16 @@ export default class extends ModelAbstract implements IModel{
     let y =  this.y
     switch (this.direction) {
       case directEnum.top:
-      y -= 2
+      y -= 5
         break;
       case directEnum.right:
-     x += 2
+     x += 5
         break;
       case directEnum.bottom:
-      y += 2
+      y += 5
         break;
       case directEnum.left:
-      x -= 2
+      x -= 5
         break;
 
       default:

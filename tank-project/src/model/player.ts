@@ -4,6 +4,7 @@ import { ModelAbstract } from "./modelAbstract";
 import _ from "lodash";
 import { directEnum } from "../enum/positionEnum";
 import util from "../util";
+import bullet from "../canvas/bullet";
 
 export default class extends ModelAbstract implements IModel{
   public canvas: ICanvas = player;
@@ -21,6 +22,12 @@ export default class extends ModelAbstract implements IModel{
       document.addEventListener('keydown',(e)=>this.changeDirection(e))
       // * 键盘事件移动
       document.addEventListener('keydown',(e)=>this.move(e))
+      // * 键盘事件发射子弹，按空格键发射
+      document.addEventListener('keydown',(e:KeyboardEvent)=>{
+        console.log(e.code);
+
+        if(e.code ==='Space') bullet.addBullet()
+      })
 
     }
   }
