@@ -23,7 +23,7 @@ export default class extends ModelAbstract implements IModel{
   render(): void {
     let x =  this.x
     let y =  this.y
-    const step = this.tank.name === 'player' ?20:1
+    const step = this.tank.name === 'player' ? 20 : 1
     switch (this.direction) {
       case directEnum.top:
       y -= step

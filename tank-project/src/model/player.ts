@@ -57,16 +57,16 @@ export default class extends ModelAbstract implements IModel{
 
     switch(e.code){
         case 'ArrowUp':
-          y-=5
+          y-=10
           break;
         case 'ArrowRight':
-          x+=5
+          x+=10
           break;
         case 'ArrowDown':
-          y+=5
+          y+=10
           break;
         case 'ArrowLeft':
-          x-=5
+          x-=10
           break;
 
       }
