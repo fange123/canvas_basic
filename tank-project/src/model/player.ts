@@ -11,12 +11,18 @@ export default class extends ModelAbstract implements IModel{
     return image.get(direction as any)!
   }
   name: string = 'player';
+  isBindEvent:boolean = false;//判断是否绑定事件
   render(): void {
     super.draw()
-    document.addEventListener('keydown',(e)=>this.changeDirection(e))
+    if(!this.isBindEvent){
+      this.isBindEvent = true;//只绑定一次，相当于一个锁
+      document.addEventListener('keydown',(e)=>this.changeDirection(e))
+
+    }
   }
 
   changeDirection(e:KeyboardEvent){
+
     switch(e.code){
         case 'ArrowUp':
           this.direction = directEnum.top
@@ -29,6 +35,7 @@ export default class extends ModelAbstract implements IModel{
           break;
         case 'ArrowLeft':
           this.direction = directEnum.left
+
           break;
 
       }
