@@ -36,7 +36,7 @@ export default new(class Tank extends CanvasAbstract implements ICanvas{
   }
 
    //* 将模型渲染到画布上
-  protected renderModels(){
+  public renderModels(){
      //* 每次运动前需要清理一下画布，如果只清理坦克，坦克数量多的时候影响性能
       this.ctx.clearRect(0,0,config.canvas.width,config.canvas.height)
       super.renderModels()

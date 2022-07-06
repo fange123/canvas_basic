@@ -9,6 +9,7 @@ import steel from './canvas/steel'
 import tank from './canvas/tank'
 import bullet from './canvas/bullet'
 import boss from './canvas/boss'
+import player from './canvas/player'
 
 
 const app:HTMLDivElement= document.querySelector('#app')!
@@ -27,6 +28,7 @@ async function bootstrap(){
   tank.render()//渲染坦克
   bullet.render()//渲染子弹
   boss.render()//渲染boss
+  player.render()//渲染玩家模型
 
 
 }
