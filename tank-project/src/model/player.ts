@@ -3,6 +3,7 @@ import { image } from "../service/image";
 import { ModelAbstract } from "./modelAbstract";
 import _ from "lodash";
 import { directEnum } from "../enum/positionEnum";
+import util from "../util";
 
 export default class extends ModelAbstract implements IModel{
   public canvas: ICanvas = player;
@@ -16,7 +17,10 @@ export default class extends ModelAbstract implements IModel{
     super.draw()
     if(!this.isBindEvent){
       this.isBindEvent = true;//只绑定一次，相当于一个锁
+      // * 键盘事件改变方向
       document.addEventListener('keydown',(e)=>this.changeDirection(e))
+      // * 键盘事件移动
+      document.addEventListener('keydown',(e)=>this.move(e))
 
     }
   }
@@ -37,12 +41,36 @@ export default class extends ModelAbstract implements IModel{
           this.direction = directEnum.left
 
           break;
+      }
+  }
+
+  move(e:KeyboardEvent){
+    let x = this.x
+    let y = this.y
+
+    switch(e.code){
+        case 'ArrowUp':
+          y-=5
+          break;
+        case 'ArrowRight':
+          x+=5
+          break;
+        case 'ArrowDown':
+          y+=5
+          break;
+        case 'ArrowLeft':
+          x-=5
+          break;
 
       }
-
-
-      this.canvas.renderModels()
-
+//* 碰撞检测
+if(util.isCanvasTouch(x,y) || util.isModelTouch(x,y)){
+  //如果碰上边界或者规定的模型，就作废此次事件
+  return
+}
+    this.x = x
+    this.y = y
+    this.canvas.renderModels()
 
   }
 
