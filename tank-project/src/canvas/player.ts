@@ -21,7 +21,7 @@ export default new(class Player extends CanvasAbstract implements ICanvas{
   protected createModels(){
 
     [{
-      x:config.canvas.width/2+2*config.model.width,y:config.canvas.height-config.model.height
+      x:config.canvas.width/2+3*config.model.width,y:config.canvas.height-config.model.height
     }].forEach((position)=>{
       const model = this.model()as IModelConstructor
       const instance = new model(position.x,position.y)
