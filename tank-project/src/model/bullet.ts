@@ -8,6 +8,8 @@ import wall from "../canvas/wall";
 import water from "../canvas/water";
 import steel from "../canvas/steel";
 import boss from "../canvas/boss";
+import tank from "../canvas/tank";
+import player from "../canvas/player";
 
 export default class extends ModelAbstract implements IModel{
   public canvas: ICanvas = bullet;
@@ -42,11 +44,11 @@ export default class extends ModelAbstract implements IModel{
         break;
     }
 
-    const touchModel = util.isModelTouch(x,y,2,2,[...wall.models,...water.models,...steel.models,...boss.models])//碰撞了应该消失掉的模型
+    const touchModel = util.isModelTouch(x,y,2,2,[...wall.models,...water.models,...steel.models,...boss.models,...tank.models,...player.models])//子弹碰到了应该消失掉的模型
     if(util.isCanvasTouch(x,y,2,2)){
       //移除模型
       this.destroy()
-    }else if(touchModel){
+    }else if(touchModel && touchModel.name !== this.tank.name){//子弹不能打爆自己或者队友
       this.destroy()
       //  子弹碰到steel类型的模型的墙不可以被销毁
       if(touchModel.name !== 'steel') touchModel.destroy()//模型自我销毁
