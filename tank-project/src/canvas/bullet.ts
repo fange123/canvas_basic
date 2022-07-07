@@ -6,7 +6,7 @@ import Bullet from '../model/bullet'
 import player from "./player";
 import audio from "../service/audio";
 
-//* 创建水坑的实例
+//* 创建 子弹的实例
 export default new (class extends CanvasAbstract implements ICanvas{
   intervalId = 0
   number(): number {

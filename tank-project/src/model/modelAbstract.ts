@@ -1,5 +1,6 @@
 import config from "../config";
 import { directEnum } from "../enum/positionEnum";
+import audio from "../service/audio";
 
 //*定义模型的抽象父类，方便子类继承
 export abstract class  ModelAbstract{
@@ -33,6 +34,7 @@ export abstract class  ModelAbstract{
 
    //爆炸效果
   protected blast(model:IModel){
+    audio.blast();
   //* 因为图片要一个一个显示，所以要使用promise最合适
     [...Array(8).keys()].reduce((promise,index)=>{
       return new Promise((resolve)=> {
