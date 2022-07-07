@@ -17,13 +17,21 @@ app.style.width = config.canvas.width +'px'
 app.style.height = config.canvas.height+'px'
 
 export default {
+  isStart:false,
 
-  bootstrap(){},
+  bootstrap(){
+    app.addEventListener('click',()=> {
+      if(this.isStart === true ) return
+      this.start()
+      app.style.backgroundImage = 'none'
+    })
+  },
 
   stop(){
   },
 
   async start(){
+  this.isStart = true
   //promise是数组
   await Promise.all(promise);
   //* 加载完了 可以在image这个Map里面拿图片资源了
