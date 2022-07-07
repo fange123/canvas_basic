@@ -10,6 +10,7 @@ import tank from './canvas/tank'
 import bullet from './canvas/bullet'
 import boss from './canvas/boss'
 import player from './canvas/player'
+import audio from './service/audio'
 
 
 const app:HTMLDivElement= document.querySelector('#app')!
@@ -46,6 +47,7 @@ export default {
   async start(){
   this.isStart = true
   app.style.backgroundImage = 'none'
+  audio.start()
   //promise是数组
   await Promise.all(promise);
   //* 加载完了 可以在image这个Map里面拿图片资源了

@@ -2,7 +2,7 @@ import CanvasAbstract from "./canvas";
 import model from "../model/player"
 import config from "../config";
 
-//* 创建水坑的实例
+//* 创建玩家坦克的实例
 export default new(class Player extends CanvasAbstract implements ICanvas{
   number(): number {
     return 0

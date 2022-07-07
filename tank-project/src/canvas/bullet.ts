@@ -4,6 +4,7 @@ import model from "../model/bullet"
 import tank from "./tank";
 import Bullet from '../model/bullet'
 import player from "./player";
+import audio from "../service/audio";
 
 //* 创建水坑的实例
 export default new (class extends CanvasAbstract implements ICanvas{
@@ -45,6 +46,7 @@ export default new (class extends CanvasAbstract implements ICanvas{
 
   //* 添加玩家子弹
   addBullet(){
+    audio.fire()
     this.models.push(new Bullet(player.models[0]))
   }
 
