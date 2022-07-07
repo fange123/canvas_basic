@@ -56,7 +56,7 @@ export default {
     ctx.textBaseline='middle';
     ctx.textAlign = 'center';
     ctx.fillStyle = "orange";
-    ctx.fillText(`${this.state === 1 ? '很遗憾，输了呢':'恭喜您，赢了比赛'}`, config.canvas.width/2, config.canvas.height/2);
+    ctx.fillText(`${this.state === 1 ? '恭喜您，赢了比赛':'很遗憾，输了呢'}`, config.canvas.width/2, config.canvas.height/2);
     app.appendChild(el)
   },
 
