@@ -24,7 +24,6 @@ export default class extends ModelAbstract implements IModel{
       document.addEventListener('keydown',(e)=>this.move(e))
       // * 键盘事件发射子弹，按空格键发射
       document.addEventListener('keydown',(e:KeyboardEvent)=>{
-        console.log(e.code);
 
         if(e.code ==='Space') bullet.addBullet()
       })

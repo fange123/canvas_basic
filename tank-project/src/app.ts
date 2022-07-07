@@ -18,20 +18,33 @@ app.style.height = config.canvas.height+'px'
 
 export default {
   isStart:false,
+  state:9,
+  timeId:0,
 
   bootstrap(){
-    app.addEventListener('click',()=> {
+    app.addEventListener('click',async ()=> {
       if(this.isStart === true ) return
-      this.start()
-      app.style.backgroundImage = 'none'
+      await this.start()
+      // * 开始游戏后，判断游戏结束
+       this.timeId = setInterval(()=> {
+        if(tank.models.length === 0) this.state = 1
+        if(player.models.length === 0 || boss.models.length === 0) this.state = 0
+        if(this.state !== 9) this.stop()
+      },100)
+
+
+
     })
   },
 
   stop(){
+    clearInterval(this.timeId)
+
   },
 
   async start(){
   this.isStart = true
+  app.style.backgroundImage = 'none'
   //promise是数组
   await Promise.all(promise);
   //* 加载完了 可以在image这个Map里面拿图片资源了
