@@ -42,6 +42,22 @@ export default {
     clearInterval(this.timeId)
     tank.stop()
     bullet.stop()
+    this.text()
+
+
+  },
+
+  text(){
+  const el = document.createElement('canvas')
+    const ctx = el.getContext('2d')!
+    el.width = config.canvas.width
+    el.height = config.canvas.height
+    ctx.font = "80px serif";
+    ctx.textBaseline='middle';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = "orange";
+    ctx.fillText(`${this.state === 1 ? '很遗憾，输了呢':'恭喜您，赢了比赛'}`, config.canvas.width/2, config.canvas.height/2);
+    app.appendChild(el)
   },
 
   async start(){
