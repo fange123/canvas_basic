@@ -39,7 +39,8 @@ export default {
 
   stop(){
     clearInterval(this.timeId)
-
+    tank.stop()
+    bullet.stop()
   },
 
   async start(){

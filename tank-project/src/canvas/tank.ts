@@ -5,6 +5,7 @@ import position from "../service/position";
 
 //* 创建坦克的实例
 export default new(class Tank extends CanvasAbstract implements ICanvas{
+  intervalId = 0
   number(): number {
     return config.tank.num
   }
@@ -17,9 +18,13 @@ export default new(class Tank extends CanvasAbstract implements ICanvas{
     this.createModels()//重写，用自己的
     this.renderModels()
 
-    setInterval(()=> {
+    this.intervalId = setInterval(()=> {
       this.renderModels()
     },config.timeout)
+  }
+
+  stop(){
+    clearInterval(this.intervalId)
   }
 
     //* 画对象模型

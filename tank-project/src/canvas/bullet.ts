@@ -7,6 +7,7 @@ import player from "./player";
 
 //* 创建水坑的实例
 export default new (class extends CanvasAbstract implements ICanvas{
+  intervalId = 0
   number(): number {
     return config.water.num
   }
@@ -18,10 +19,14 @@ export default new (class extends CanvasAbstract implements ICanvas{
   render(): void {
     // super.createModels()
     // super.renderModels()
-    setInterval(() =>{
+    this.intervalId = setInterval(() =>{
       this.createBullet()
       this.renderModels()
     },50)//子弹的渲染时间
+  }
+
+  stop(){
+    clearInterval(this.intervalId)
   }
 
   createBullet(){

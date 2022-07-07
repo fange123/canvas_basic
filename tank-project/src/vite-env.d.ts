@@ -24,5 +24,6 @@ interface ICanvas {
   number():number
   removeModel(model:IModel):void
   renderModels:()=>void
+  stop?:()=>void
   ctx:CanvasRenderingContext2D
 }
